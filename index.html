@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Sidra Ansari" />
   <title>Sidra Ansari | Web Developer & Trading Expert</title>
   <meta name="description" content="Sidra Ansari is a web developer and trading bot expert. Get modern websites, trading bots, and growth strategies.">
   <meta name="keywords" content="web development, trading bots, business website, forex bot, crypto analysis, Sidra Ansari">
@@ -13,6 +14,8 @@
   <meta property="og:url" content="https://yourwebsite.com">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -51,6 +54,12 @@
       padding: 20px;
       box-shadow: 2px 0 5px rgba(0,0,0,0.1);
       z-index: 1000;
+    }
+    .sidebar h3 {
+      color: var(--text-light);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-align: center;
     }
     .sidebar ul {
       list-style: none;
@@ -245,6 +254,9 @@
         position: relative;
         padding: 15px;
       }
+      .sidebar h3 {
+        font-size: 1.2rem;
+      }
       .sidebar ul {
         flex-direction: row;
         justify-content: center;
@@ -258,6 +270,7 @@
 </head>
 <body>
   <div class="sidebar">
+    <h3>Sidra Ansari</h3>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -372,7 +385,7 @@
     <p>Payments accepted: UPI, NetBanking, Crypto, Cards</p>
     <div class="social-links">
       <a href="https://t.me/arkalgolabs" target="_blank">Telegram</a>
-      <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
+      <a href="https://www.instagram.com/zaykafast/" target="_blank">Instagram</a>
       <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
     </div>
     <div class="links">
@@ -416,6 +429,19 @@
     const backToTop = document.getElementById("backToTop");
     window.addEventListener("scroll", () => {
       backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    // Smooth Scroll for Sidebar Links
+    document.querySelectorAll('.sidebar a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        window.scrollTo({
+          top: targetElement.offsetTop - 20,
+          behavior: 'smooth'
+        });
+      });
     });
   </script>
 </body>
