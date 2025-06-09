@@ -13,8 +13,6 @@
   <meta property="og:url" content="https://yourwebsite.com">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Favicon (replace with your favicon) -->
-  <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -36,33 +34,37 @@
       color: #333;
       line-height: 1.6;
       animation: fadeIn 1s ease-in;
+      margin-left: 200px; /* Adjusted for sidebar width */
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* Navigation */
-    nav {
+    /* Sidebar Navigation */
+    .sidebar {
       background: var(--bg-dark);
-      position: sticky;
+      width: 200px;
+      height: 100vh;
+      position: fixed;
       top: 0;
+      left: 0;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
       z-index: 1000;
-      padding: 15px 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    nav ul {
+    .sidebar ul {
       list-style: none;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       gap: 20px;
     }
-    nav a {
+    .sidebar a {
       color: var(--text-light);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
-    nav a:hover {
+    .sidebar a:hover {
       color: var(--accent);
     }
     /* Header */
@@ -233,14 +235,29 @@
     }
     /* Responsive */
     @media (max-width: 768px) {
+      body {
+        margin-left: 0; /* Remove sidebar margin on mobile */
+      }
       header h1 { font-size: 2.5rem; }
-      nav ul { flex-direction: column; align-items: center; }
-      .services, .portfolio { grid-template-columns: 1fr; }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 15px;
+      }
+      .sidebar ul {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .services, .portfolio {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <nav>
+  <div class="sidebar">
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -249,7 +266,7 @@
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </nav>
+  </div>
 
   <header>
     <h1>Sidra Ansari</h1>
