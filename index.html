@@ -149,6 +149,35 @@
       color: var(--primary);
       margin-bottom: 15px;
     }
+    /* Services Dropdown */
+    .services-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .services-toggle.active::before {
+      content: '× ';
+    }
+    .services {
+      display: none;
+    }
+    .services.active {
+      display: grid;
+    }
+    @media (max-width: 768px) {
+      .services-toggle {
+        display: block;
+      }
+      .services {
+        display: none;
+      }
+      .services.active {
+        display: grid;
+      }
+    }
     /* Portfolio */
     .portfolio-item img {
       width: 100%;
@@ -245,11 +274,10 @@
     /* Responsive */
     @media (max-width: 768px) {
       body {
-        margin-left: 0; /* Remove sidebar margin on mobile */
+        margin-left: 0;
       }
       header h1 { font-size: 2.5rem; }
-      .sidebar
-System: {
+      .sidebar {
         width: 100%;
         height: auto;
         position: relative;
@@ -291,11 +319,12 @@ System: {
   <section id="about">
     <h2>About Sidra</h2>
     <p>Sidra Ansari is a <span class="highlight">professional web developer</span> who creates modern, responsive websites for all kinds of businesses. She helps entrepreneurs grow their online presence, boost sales, and automate systems with smart technology.</p>
-    <p>In addition to development, Sidra also provides <span class="highlight">trading analysis</span>, builds high-accuracy <span class="highlight">trading bots</span>, and offers <span class="highlight">trading education</span> for Indian, Crypto, Forex, and Binary markets.</p>
+    <p>In addition to development, Sidra also provides <span class="highlight">trading analysis</span>, builds high-accuracy <span class="highlight">trading bots</span>, and offers <span class="highlight">trading education</span> for Indian, Crypto, Forex, and Binary markets at affordable prices.</p>
   </section>
 
   <section id="services">
     <h2>Services</h2>
+    <div class="services-toggle">☰ View Services</div>
     <div class="services">
       <div class="service">
         <h3>Website Development</h3>
@@ -314,8 +343,8 @@ System: {
         <p>Helping businesses grow their digital presence and scale online sales through tech & automation.</p>
       </div>
       <div class="service">
-        <h3>Trading Education</h3>
-        <p>Comprehensive training on trading strategies for Indian, Crypto, Forex, and Binary markets to empower traders.</p>
+        <h3>Trading Master</h3>
+        <p>Want to master trading? I teach trading strategies for Indian, Crypto, Forex, and Binary markets at very affordable prices!</p>
       </div>
     </div>
   </section>
@@ -447,6 +476,14 @@ System: {
           behavior: 'smooth'
         });
       });
+    });
+
+    // Services Toggle
+    const servicesToggle = document.querySelector('.services-toggle');
+    const services = document.querySelector('.services');
+    servicesToggle.addEventListener('click', () => {
+      services.classList.toggle('active');
+      servicesToggle.classList.toggle('active');
     });
   </script>
 </body>
